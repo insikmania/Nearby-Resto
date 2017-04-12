@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EF1E64A931F7C580E1E191 /* Pods_Nearby_Resto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0637D98F335D6530252B72CA /* Pods_Nearby_Resto.framework */; };
 		7DE162161E9DC4A400B0DE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */; };
-		7DE162181E9DC4A400B0DE73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE162171E9DC4A400B0DE73 /* ViewController.swift */; };
 		7DE1621B1E9DC4A400B0DE73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE162191E9DC4A400B0DE73 /* Main.storyboard */; };
 		7DE1621D1E9DC4A400B0DE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DE1621C1E9DC4A400B0DE73 /* Assets.xcassets */; };
 		7DE162201E9DC4A400B0DE73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE1621E1E9DC4A400B0DE73 /* LaunchScreen.storyboard */; };
@@ -17,9 +17,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0637D98F335D6530252B72CA /* Pods_Nearby_Resto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nearby_Resto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE23990F2C9E70B85E933E1 /* Pods-Nearby-Resto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nearby-Resto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto.debug.xcconfig"; sourceTree = "<group>"; };
+		5CD2393EF8B6A7BE2CB7FC42 /* Pods-Nearby-Resto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nearby-Resto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto.release.xcconfig"; sourceTree = "<group>"; };
 		7DE162121E9DC4A400B0DE73 /* Nearby-Resto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nearby-Resto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DE162171E9DC4A400B0DE73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7DE1621A1E9DC4A400B0DE73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DE1621C1E9DC4A400B0DE73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DE1621F1E9DC4A400B0DE73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EF1E64A931F7C580E1E191 /* Pods_Nearby_Resto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015327D751BE2B313F33B0E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FE23990F2C9E70B85E933E1 /* Pods-Nearby-Resto.debug.xcconfig */,
+				5CD2393EF8B6A7BE2CB7FC42 /* Pods-Nearby-Resto.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C91F01FA5B10FBBF1D4224B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0637D98F335D6530252B72CA /* Pods_Nearby_Resto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7DE162091E9DC4A300B0DE73 = {
 			isa = PBXGroup;
 			children = (
 				7DE162141E9DC4A400B0DE73 /* Nearby-Resto */,
 				7DE162131E9DC4A400B0DE73 /* Products */,
+				015327D751BE2B313F33B0E3 /* Pods */,
+				6C91F01FA5B10FBBF1D4224B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +82,6 @@
 			children = (
 				7DE162271E9DC4BA00B0DE73 /* LocationManager.swift */,
 				7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */,
-				7DE162171E9DC4A400B0DE73 /* ViewController.swift */,
 				7DE162291E9DC4CE00B0DE73 /* NearbyViewController.swift */,
 				7DE162191E9DC4A400B0DE73 /* Main.storyboard */,
 				7DE1621C1E9DC4A400B0DE73 /* Assets.xcassets */,
@@ -77,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DE162241E9DC4A400B0DE73 /* Build configuration list for PBXNativeTarget "Nearby-Resto" */;
 			buildPhases = (
+				63059794B59C18163747990D /* [CP] Check Pods Manifest.lock */,
 				7DE1620E1E9DC4A400B0DE73 /* Sources */,
 				7DE1620F1E9DC4A400B0DE73 /* Frameworks */,
 				7DE162101E9DC4A400B0DE73 /* Resources */,
+				A5A4AB3D2F6487292F69E8FF /* [CP] Embed Pods Frameworks */,
+				707D4302C8EED931ADC1E9E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -102,7 +126,7 @@
 				TargetAttributes = {
 					7DE162111E9DC4A400B0DE73 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EM38HWLMRR;
+						DevelopmentTeam = U9NBZ7F4GE;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,12 +162,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		63059794B59C18163747990D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		707D4302C8EED931ADC1E9E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5A4AB3D2F6487292F69E8FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7DE1620E1E9DC4A400B0DE73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DE162181E9DC4A400B0DE73 /* ViewController.swift in Sources */,
 				7DE1622A1E9DC4CE00B0DE73 /* NearbyViewController.swift in Sources */,
 				7DE162161E9DC4A400B0DE73 /* AppDelegate.swift in Sources */,
 				7DE162281E9DC4BA00B0DE73 /* LocationManager.swift in Sources */,
@@ -265,9 +336,10 @@
 		};
 		7DE162251E9DC4A400B0DE73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FE23990F2C9E70B85E933E1 /* Pods-Nearby-Resto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EM38HWLMRR;
+				DEVELOPMENT_TEAM = U9NBZ7F4GE;
 				INFOPLIST_FILE = "Nearby-Resto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnbariquit.Nearby-Resto";
@@ -278,9 +350,10 @@
 		};
 		7DE162261E9DC4A400B0DE73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD2393EF8B6A7BE2CB7FC42 /* Pods-Nearby-Resto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EM38HWLMRR;
+				DEVELOPMENT_TEAM = U9NBZ7F4GE;
 				INFOPLIST_FILE = "Nearby-Resto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnbariquit.Nearby-Resto";
@@ -308,6 +381,7 @@
 				7DE162261E9DC4A400B0DE73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

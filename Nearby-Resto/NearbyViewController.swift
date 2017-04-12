@@ -105,12 +105,17 @@ class NearbyViewController: UIViewController, LocationManagerDelegate {
     
     func plotAnnotationCoordinate(coordinate: YLPCoordinate, restaurant: YLPBusiness) {
 
-        let annotation                  = MKPointAnnotation()
-        annotation.coordinate           = CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                 longitude: coordinate.longitude)
-        annotation.title                = restaurant.name
-        annotation.subtitle             = restaurant.phone
-        mapView.addAnnotation(annotation)
+        (DispatchQueue.main).async(execute: { () -> Void in
+            
+            let annotation                  = MKPointAnnotation()
+            annotation.coordinate           = CLLocationCoordinate2D(latitude: coordinate.latitude,
+                                                                     longitude: coordinate.longitude)
+            annotation.title                = restaurant.name
+            annotation.subtitle             = restaurant.phone
+            self.mapView.addAnnotation(annotation)
+            
+        })
+        
     }
     
 
@@ -139,7 +144,7 @@ class NearbyViewController: UIViewController, LocationManagerDelegate {
             let coordinate      = YLPCoordinate.init(latitude: latitude, longitude: longitude)
             let query           = YLPQuery.init(coordinate: coordinate)
             query.term          = "restaurant"
-            query.radiusFilter  = 2000.0
+            query.radiusFilter  = 500.0
             
             client?.search(with: query, completionHandler: { (search, error) in
                 
@@ -184,54 +189,4 @@ class NearbyViewController: UIViewController, LocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-////    let locationManager = CLLocationManager();
-////    var client: YLPClient? = nil;
-////    let query = YLPQuery.init(coordinate: YLPCoordinate.init(latitude: 37.33020389, longitude: -122.02635116));
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        // Do any additional setup after loading the view, typically from a nib.
-//        YLPClient.authorize(withAppId: "r9i6zTQNhyC2AWaDv7ANxQ", secret: "AL7Ez0812kaDt6QSzSGbhwbC9LsZTG6vzDEYn1t8doU62IUD3GvQtFnPbGxKFiuN") { (client, error) in
-//            
-//            print("error: \(error)");
-//            self.client = client;
-//            print("client: \(self.client)");
-//            
-//            //            self.initializeLocationManager();
-//            
-//            self.query.term = "restaurant";
-//            self.client?.search(with: self.query, completionHandler: { (search, error) in
-//                print("search \(search)");
-//                
-//                for object in (search?.businesses)! as [YLPBusiness] {
-//                    print("object \(object.name)");
-//                }
-//            });
-//        }
-//        
-//    }
-//
-//   
-//    
-////    func initializeLocationManager() {
-////        
-////        
-////        self.locationManager.requestWhenInUseAuthorization()
-////        
-////        if (CLLocationManager.locationServicesEnabled()) {
-////            self.locationManager.delegate = self;
-////            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-////            self.locationManager.startUpdatingLocation();
-////        }
-////    }
-////    
-////    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-////        manager.stopUpdatingHeading();
-////        print("locations = \(manager.location?.coordinate.latitude) \(manager.location?.coordinate.longitude)")
-////        
-////    }
-    
 }

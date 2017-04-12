@@ -161,7 +161,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         // locationManager.locationServicesEnabled
-        locationManager.distanceFilter = 100.0;
+        locationManager.distanceFilter = 500.0;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         let Device = UIDevice.current
