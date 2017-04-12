@@ -8,5 +8,6 @@ target 'Nearby-Resto' do
 
   # Pods for Nearby-Resto
   pod 'YelpAPI'
+  pod 'AFNetworking'
 
 end
