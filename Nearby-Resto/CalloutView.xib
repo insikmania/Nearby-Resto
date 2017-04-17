@@ -34,19 +34,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br2-IH-odR">
-                    <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br2-IH-odR">
+                    <rect key="frame" x="205" y="25" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="XAI-Rz-hyR"/>
+                        <constraint firstAttribute="width" constant="40" id="kYI-iI-22H"/>
+                    </constraints>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="br2-IH-odR" secondAttribute="trailing" id="0AJ-QZ-gcJ"/>
                 <constraint firstItem="sxG-Sd-wCh" firstAttribute="trailing" secondItem="X08-54-YEo" secondAttribute="trailing" id="7NQ-nj-aij"/>
                 <constraint firstAttribute="trailing" secondItem="X08-54-YEo" secondAttribute="trailing" constant="5" id="7OE-bQ-YLg"/>
-                <constraint firstAttribute="bottom" secondItem="br2-IH-odR" secondAttribute="bottom" id="8ZI-W1-1zT"/>
+                <constraint firstAttribute="bottom" secondItem="br2-IH-odR" secondAttribute="bottom" constant="5" id="7gr-9k-23r"/>
                 <constraint firstItem="X08-54-YEo" firstAttribute="leading" secondItem="lJl-Fl-lj2" secondAttribute="trailing" constant="5" id="8s7-Za-627"/>
-                <constraint firstItem="br2-IH-odR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EES-iy-SFw"/>
-                <constraint firstItem="br2-IH-odR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jta-R7-Sgy"/>
+                <constraint firstAttribute="trailing" secondItem="br2-IH-odR" secondAttribute="trailing" constant="5" id="M9A-LF-gVx"/>
                 <constraint firstItem="lJl-Fl-lj2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="aDZ-E9-zBr"/>
                 <constraint firstItem="sxG-Sd-wCh" firstAttribute="top" secondItem="X08-54-YEo" secondAttribute="bottom" id="geT-Iv-KN1"/>
                 <constraint firstAttribute="bottom" secondItem="lJl-Fl-lj2" secondAttribute="bottom" constant="5" id="nA8-sB-gSW"/>
