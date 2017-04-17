@@ -16,36 +16,21 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchButton: UIButton!
     
-    var client: YLPClient? = nil;
     var locationManager = LocationManager.sharedInstance
-    
+
+    var appDelegate:AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.autoUpdate      = true
-        searchButton.isEnabled          = false
         
         mapView.delegate                = self
         locationManager.delegate        = self
         locationManager.startUpdatingLocation()
-        
-        self.checkClient()
-    }
-    
-    func checkClient() {
-        
-        if client == nil {
-            
-            self.authorizeClient(callback: { (client) in
-                
-                self.client                 = client
-                self.searchButton.isEnabled = true
-                print(client)
-                
-            })
-            
-        }
+
     }
 
     
@@ -77,8 +62,11 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
     }
     
     func plotAllRestaurants(_ restaurants:[YLPBusiness]) {
-       
-        self.removeAllPlacemarkFromMap(true)
+        
+        DispatchQueue.main.async {
+            self.removeAllPlacemarkFromMap(true)
+        }
+        
         
         if self.locationManager.isRunning {
             self.locationManager.stopUpdatingLocation()
@@ -94,17 +82,9 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
     
     func plotAnnotationCoordinate(coordinate: YLPCoordinate, restaurant: YLPBusiness) {
 
-        (DispatchQueue.main).async(execute: { () -> Void in
-            
-            let annotation = RestaurantAnnotaion(restaurant: restaurant)
-//            annotation.coordinate           = CLLocationCoordinate2D(latitude: coordinate.latitude,
-//                                                                     longitude: coordinate.longitude)
-//            annotation.title                = restaurant.name
-//            annotation.subtitle             = restaurant.phone
-            self.mapView.addAnnotation(annotation)
-            
-        })
-        
+        let annotation = RestaurantAnnotaion(restaurant: restaurant)
+        self.mapView.addAnnotation(annotation)
+
     }
     
     
@@ -137,17 +117,13 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
         }
         
         let restaurantAnnotation = view.annotation as! RestaurantAnnotaion
-        let categories = restaurantAnnotation.restaurant.categories as Array
-        let option = categories[0] as YLPCategory
-        
         let views = Bundle.main.loadNibNamed("CalloutView", owner: nil, options: nil)
         let calloutView = views?[0] as! CalloutView
+        
         calloutView.restaurantNameLabel.text = restaurantAnnotation.restaurant.name
-        calloutView.categoryLabel.text = option.alias
         calloutView.phoneLabel.text = restaurantAnnotation.restaurant.phone
-        calloutView.ratingLabel.text = "ratings: \(restaurantAnnotation.restaurant.rating)"
-        calloutView.reviewLabel.text = "reviews: \(restaurantAnnotation.restaurant.reviewCount)"
         calloutView.imageView.setImageWith(restaurantAnnotation.restaurant.imageURL!)
+        calloutView.eventButton.addTarget(self, action: #selector(showRestaurantInfo), for: .touchUpInside)
     
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
@@ -162,7 +138,17 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
             }
         }
     }
-
+    
+    
+    func showRestaurantInfo(sender: UIButton!) {
+        
+        let view = sender.superview?.superview as! AnnotationView
+        let annotation = view.annotation as! RestaurantAnnotaion
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Details") as? DetailsViewController
+        viewController?.details = annotation.restaurant
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
 
     
     //........................Location Manager
@@ -188,14 +174,15 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
         
         }
         
-        if client != nil {
+        
+        if appDelegate.client != nil {
             
             let coordinate      = YLPCoordinate.init(latitude: latitude, longitude: longitude)
             let query           = YLPQuery.init(coordinate: coordinate)
             query.term          = "restaurant"
-//            query.radiusFilter  = 500.0
+            query.radiusFilter  = 1000.0
             
-            client?.search(with: query, completionHandler: { (search, error) in
+            appDelegate.client?.search(with: query, completionHandler: { (search, error) in
                 
                 if error != nil {
                     
@@ -219,20 +206,6 @@ class NearbyViewController: UIViewController, LocationManagerDelegate, MKMapView
         print(error)
     }
 
-    func authorizeClient(callback:@escaping (YLPClient) -> ()) {
-
-        YLPClient.authorize(withAppId   : "r9i6zTQNhyC2AWaDv7ANxQ",
-                            secret      : "AL7Ez0812kaDt6QSzSGbhwbC9LsZTG6vzDEYn1t8doU62IUD3GvQtFnPbGxKFiuN")
-        { (client, error) in
-            
-            if error != nil {
-                print("error \(error?.localizedDescription)")
-            } else {
-                callback(client!)
-            }
-            
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

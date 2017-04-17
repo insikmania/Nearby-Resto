@@ -12,9 +12,7 @@ class CalloutView: UIView {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewLabel: UILabel!
+    @IBOutlet weak var eventButton: UIButton!
     
 }

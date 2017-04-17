@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02EF1E64A931F7C580E1E191 /* Pods_Nearby_Resto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0637D98F335D6530252B72CA /* Pods_Nearby_Resto.framework */; };
+		7DA6D2791EA5044D00A6041F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6D2781EA5044D00A6041F /* DetailsViewController.swift */; };
+		7DA6D27D1EA5381300A6041F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA6D27C1EA5381300A6041F /* HeaderCell.xib */; };
 		7DAB3BF81E9DFBB400937614 /* RestaurantAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAB3BF71E9DFBB400937614 /* RestaurantAnnotaion.swift */; };
 		7DE162161E9DC4A400B0DE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */; };
 		7DE1621B1E9DC4A400B0DE73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE162191E9DC4A400B0DE73 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		0637D98F335D6530252B72CA /* Pods_Nearby_Resto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nearby_Resto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE23990F2C9E70B85E933E1 /* Pods-Nearby-Resto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nearby-Resto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto.debug.xcconfig"; sourceTree = "<group>"; };
 		5CD2393EF8B6A7BE2CB7FC42 /* Pods-Nearby-Resto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nearby-Resto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nearby-Resto/Pods-Nearby-Resto.release.xcconfig"; sourceTree = "<group>"; };
+		7DA6D2781EA5044D00A6041F /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		7DA6D27C1EA5381300A6041F /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		7DAB3BF71E9DFBB400937614 /* RestaurantAnnotaion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantAnnotaion.swift; sourceTree = "<group>"; };
 		7DE162121E9DC4A400B0DE73 /* Nearby-Resto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nearby-Resto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7DA6D27B1EA537D800A6041F /* CallOut */ = {
+			isa = PBXGroup;
+			children = (
+				7DE1622F1E9DF5BE00B0DE73 /* CalloutView.xib */,
+				7DE162311E9DF5D000B0DE73 /* CalloutView.swift */,
+			);
+			name = CallOut;
+			sourceTree = "<group>";
+		};
 		7DE162091E9DC4A300B0DE73 = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +100,13 @@
 			isa = PBXGroup;
 			children = (
 				7DE162271E9DC4BA00B0DE73 /* LocationManager.swift */,
+				7DAB3BF71E9DFBB400937614 /* RestaurantAnnotaion.swift */,
 				7DE162151E9DC4A400B0DE73 /* AppDelegate.swift */,
 				7DE162291E9DC4CE00B0DE73 /* NearbyViewController.swift */,
-				7DAB3BF71E9DFBB400937614 /* RestaurantAnnotaion.swift */,
+				7DA6D2781EA5044D00A6041F /* DetailsViewController.swift */,
+				7DA6D27C1EA5381300A6041F /* HeaderCell.xib */,
 				7DE162191E9DC4A400B0DE73 /* Main.storyboard */,
-				7DE1622F1E9DF5BE00B0DE73 /* CalloutView.xib */,
-				7DE162311E9DF5D000B0DE73 /* CalloutView.swift */,
+				7DA6D27B1EA537D800A6041F /* CallOut */,
 				7DE1621C1E9DC4A400B0DE73 /* Assets.xcassets */,
 				7DE1621E1E9DC4A400B0DE73 /* LaunchScreen.storyboard */,
 				7DE162211E9DC4A400B0DE73 /* Info.plist */,
@@ -163,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA6D27D1EA5381300A6041F /* HeaderCell.xib in Resources */,
 				7DE162201E9DC4A400B0DE73 /* LaunchScreen.storyboard in Resources */,
 				7DE1621D1E9DC4A400B0DE73 /* Assets.xcassets in Resources */,
 				7DE1621B1E9DC4A400B0DE73 /* Main.storyboard in Resources */,
@@ -230,6 +245,7 @@
 				7DE162161E9DC4A400B0DE73 /* AppDelegate.swift in Sources */,
 				7DE162281E9DC4BA00B0DE73 /* LocationManager.swift in Sources */,
 				7DE162321E9DF5D000B0DE73 /* CalloutView.swift in Sources */,
+				7DA6D2791EA5044D00A6041F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

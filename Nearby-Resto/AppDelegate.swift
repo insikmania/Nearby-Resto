@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import YelpAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var client: YLPClient? = nil;
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
+        
+        self.checkClient()
         return true
     }
 
@@ -40,7 +45,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func checkClient() {
+        
+        if client == nil {
+            
+            self.authorizeClient(callback: { (client) in
+                
+                self.client                 = client
+                print(client)
+                
+            })
+            
+        }
+    }
+    
+    func authorizeClient(callback:@escaping (YLPClient) -> ()) {
+        
+        
+        YLPClient.authorize(withAppId   : "r9i6zTQNhyC2AWaDv7ANxQ",
+                            secret      : "AL7Ez0812kaDt6QSzSGbhwbC9LsZTG6vzDEYn1t8doU62IUD3GvQtFnPbGxKFiuN")
+        { (client, error) in
+            
+            if error != nil {
+                print("error \(error?.localizedDescription)")
+            } else {
+                callback(client!)
+            }
+            
+        }
+    }
 
 }
 
